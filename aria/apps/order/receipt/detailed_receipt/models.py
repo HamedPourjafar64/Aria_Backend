@@ -10,4 +10,4 @@ class DetailedReceipt(models.Model):
     """
     item_name = models.CharField(null=False, max_length=128)
     item_price = models.BigIntegerField(null=False)
-    receipt_id = models.ForeignKey(to='aria.apps.order.receipt.Receipt', on_delete=models.CASCADE)
+    receipt_id = models.ForeignKey(to='receipt.Receipt', on_delete=models.CASCADE)

@@ -34,5 +34,5 @@ class Receipt(models.Model):
     payment_status = models.IntegerField(choices=PaymentStatus.choices(), default=PaymentStatus.UNPAID)
     payment_method = models.IntegerField(choices=PaymentMethod.choices(), default=PaymentMethod.NONE)
     payment_date = models.DateTimeField(default=datetime.now, null=False)
-    order_id = models.ForeignKey(to='aria.apps.order.Order', on_delete=models.CASCADE)
+    order_id = models.ForeignKey(to='order.Order', on_delete=models.CASCADE)
     creation_date = models.DateTimeField(default=datetime.now, null=False)

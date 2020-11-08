@@ -7,4 +7,4 @@ class CarSerializer(ModelSerializer):
     class Meta:
         model = Car
         optional_fields = ('user',)
-        fields = ('manufacturer', 'car_type', 'models', 'year', )
+        fields = '__all__'

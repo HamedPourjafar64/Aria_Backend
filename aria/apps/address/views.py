@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from aria.apps.user_profile.address.models import Address
-from aria.apps.user_profile.address.serializer import AddressSerializer
+from aria.apps.address.models import Address
+from aria.apps.address.serializers import AddressSerializer
 
 
 class AddressList(generics.ListCreateAPIView):

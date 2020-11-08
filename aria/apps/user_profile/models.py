@@ -10,3 +10,8 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=32, null=True)
     profile_pic = models.ImageField(upload_to='/media/profile/%Y/%m/%d/', null=True, blank=True)
     bio = models.CharField(max_length=256, null=True)
+
+
+class UserProfileAddress(models.Model):
+    address = models.OneToOneField(to='address.Address', on_delete=models.CASCADE)
+    user_profile = models.ForeignKey(to=UserProfile, on_delete=models.CASCADE)

@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from aria.apps.user_profile.address.models import Address
+from aria.apps.address.models import Address
 
 
 class AddressSerializer(ModelSerializer):

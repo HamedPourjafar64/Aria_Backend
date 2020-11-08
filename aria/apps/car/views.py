@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
-from aria.apps.person_assets.model.car import Car
-from aria.apps.person_assets.serializers.car_serializer import CarSerializer
+from aria.apps.car.models import Car
+from aria.apps.car.serializer import CarSerializer
 
 
 class CarList(generics.ListCreateAPIView):

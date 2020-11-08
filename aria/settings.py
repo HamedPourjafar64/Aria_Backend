@@ -52,10 +52,11 @@ INSTALLED_APPS = [
     'aria.apps.order.receipt.edit_log.apps.EditLogConfig',
     'aria.apps.order.receipt.detailed_receipt.apps.DetailedReceiptConfig',
     'aria.apps.part.apps.PartConfig',
+    'aria.apps.part.part_category.apps.PartCategoryConfig',
     'aria.apps.organization.apps.OrganizationConfig',
     'aria.apps.organization.role.apps.RoleConfig',
-    'aria.apps.organization.contact.apps.ContactConfig',
-    'aria.apps.organization.contact.address.apps.AddressConfig'
+    'aria.apps.address.apps.AddressConfig',
+    'aria.apps.contact.apps.ContactConfig'
 ]
 
 AUTH_USER_MODEL = 'register.User'

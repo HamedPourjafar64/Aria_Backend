@@ -11,4 +11,3 @@ class Address(models.Model):
     pin_point_location = models.CharField(max_length=128, null=True)
     latitude = models.DecimalField(max_digits=30, decimal_places=3)
     longitude = models.DecimalField(max_digits=30, decimal_places=3)
-    contact = models.ForeignKey(to='org_contact.Contact', on_delete=models.CASCADE)

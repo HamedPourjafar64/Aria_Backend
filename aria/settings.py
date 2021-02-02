@@ -41,9 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'oauth2_provider',
-    'aria.apps.user_registration.apps.RegisterConfig',
-    'aria.apps.user_profile.apps.UserProfileConfig',
-    'aria.apps.service_worker.apps.ServiceWorkerConfig',
+    'user_registration',
     'aria.apps.service.apps.ServiceConfig',
     'aria.apps.service.service_category.apps.ServiceCategoryConfig',
     'aria.apps.car.apps.CarConfig',
@@ -53,13 +51,11 @@ INSTALLED_APPS = [
     'aria.apps.order.receipt.detailed_receipt.apps.DetailedReceiptConfig',
     'aria.apps.part.apps.PartConfig',
     'aria.apps.part.part_category.apps.PartCategoryConfig',
-    'aria.apps.organization.apps.OrganizationConfig',
-    'aria.apps.organization.role.apps.RoleConfig',
-    'aria.apps.address.apps.AddressConfig',
-    'aria.apps.contact.apps.ContactConfig'
+    'contact',
+    'profile'
 ]
 
-AUTH_USER_MODEL = 'register.User'
+AUTH_USER_MODEL = 'user_registration.User'
 
 
 MIDDLEWARE = [
@@ -73,6 +69,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'profile.middlewares.middleware'
 ]
 
 ROOT_URLCONF = 'aria.urls'

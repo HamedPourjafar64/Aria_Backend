@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class EditLogConfig(AppConfig):
-    name = 'edit_log'
+    name = 'aria.apps.order.receipt.edit_log'
+    label = 'edit_log'

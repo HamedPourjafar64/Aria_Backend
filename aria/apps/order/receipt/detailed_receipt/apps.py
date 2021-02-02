@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class DetailedReceiptConfig(AppConfig):
-    name = 'detailed_receipt'
+    name = 'aria.apps.order.receipt.detailed_receipt'
+    label = 'detailed_receipt'

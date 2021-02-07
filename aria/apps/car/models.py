@@ -30,7 +30,7 @@ class Car(models.Model):
     )
     model = models.CharField(max_length=128, null=False)
     year = models.IntegerField()
-    profile = models.ForeignKey(to='profile.Profile', on_delete=models.CASCADE)
+    # profile = models.ForeignKey(to='profile.Profile', on_delete=models.CASCADE)
 
 
 class CarImages(models.Model):

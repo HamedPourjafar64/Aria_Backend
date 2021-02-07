@@ -26,8 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "/media")
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Application definition
 
@@ -41,21 +41,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'oauth2_provider',
-    'user_registration',
     'aria.apps.service.apps.ServiceConfig',
     'aria.apps.service.service_category.apps.ServiceCategoryConfig',
     'aria.apps.car.apps.CarConfig',
     'aria.apps.order.apps.OrderConfig',
-    'aria.apps.order.receipt.apps.ReceiptConfig',
-    'aria.apps.order.receipt.edit_log.apps.EditLogConfig',
-    'aria.apps.order.receipt.detailed_receipt.apps.DetailedReceiptConfig',
     'aria.apps.part.apps.PartConfig',
-    'aria.apps.part.part_category.apps.PartCategoryConfig',
-    'contact',
-    'profile'
 ]
-
-AUTH_USER_MODEL = 'user_registration.User'
 
 
 MIDDLEWARE = [
@@ -69,7 +60,6 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'profile.middlewares.middleware'
 ]
 
 ROOT_URLCONF = 'aria.urls'
@@ -95,14 +85,21 @@ WSGI_APPLICATION = 'aria.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'aria',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Hamed@123',
+#         'HOST': 'localhost',
+#         'PORT': ''
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'aria',
-        'USER': 'postgres',
-        'PASSWORD': 'Hamed@123',
-        'HOST': 'localhost',
-        'PORT': ''
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
     }
 }
 

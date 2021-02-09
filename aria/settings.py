@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'aria.apps.service.apps.ServiceConfig',
     'aria.apps.service.service_category.apps.ServiceCategoryConfig',
-    'aria.apps.car.apps.CarConfig',
+    'aria.apps.vehicle.apps.VehicleConfig',
     'aria.apps.order.apps.OrderConfig',
     'aria.apps.part.apps.PartConfig',
+    'address'
 ]
 
 

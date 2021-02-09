@@ -1,9 +1,9 @@
 from rest_framework.serializers import ModelSerializer
 
-from aria.apps.car.models import Car
+from aria.apps.vehicle.models import Car
 
 
-class CarSerializer(ModelSerializer):
+class VehicleSerializer(ModelSerializer):
     class Meta:
         model = Car
         fields = '__all__'

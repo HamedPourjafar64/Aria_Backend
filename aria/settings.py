@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'aria.apps.vehicle.apps.VehicleConfig',
     'aria.apps.order.apps.OrderConfig',
     'aria.apps.part.apps.PartConfig',
-    'address'
+    'aria.apps.aria_address.apps.AriaAddressConfig',
+    'aria.apps.aria_profile.apps.AriaProfileConfig',
+    'aria.apps.accounting.apps.AccountingConfig',
+    'aria.apps.aria_contact.apps.AriaContactConfig'
 ]
 
 
@@ -145,6 +148,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
 AUTHENTICATION_BACKENDS = (

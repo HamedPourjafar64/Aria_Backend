@@ -21,4 +21,5 @@ from django.urls import path, include
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('authentication/', include('oauth2_provider.urls', namespace='token_provider')),
+                  path('', include('aria.apps.vehicle.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

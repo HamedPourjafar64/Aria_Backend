@@ -1,5 +1,8 @@
 from django.db import models
+from django.conf import settings
+
 from enum import IntEnum
+
 
 
 class CarTypes(IntEnum):
@@ -31,9 +34,9 @@ class Vehicle(models.Model):
     vehicle_type = models.CharField(max_length=250, null=False)
     model = models.CharField(max_length=128, null=False)
     year = models.IntegerField()
-    # profile = models.ForeignKey(to='profile.Profile', on_delete=models.CASCADE)
+    user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
 class VehicleImages(models.Model):
-    file = models.ImageField(upload_to='media/images/cars/%Y/%m/%d/', null=True, blank=True)
+    file = models.ImageField(upload_to='media/images/vehicles/%Y/%m/%d/', null=True, blank=True)
     vehicle = models.ForeignKey(to=Vehicle, on_delete=models.CASCADE)

@@ -19,7 +19,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('authentication/', include('oauth2_provider.urls', namespace='token_provider')),
-                  path('', include('aria.apps.vehicle.urls')),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('authentication/', include('oauth2_provider.urls', namespace='token_provider')),
+    path('', include('aria.apps.vehicle.urls')),
+    path('', include('aria.apps.order.urls')),
+    path('', include('aria.apps.aria_address.urls')),
+    path('', include('aria.apps.service.urls')),
+    path('', include('aria.apps.aria_profile.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

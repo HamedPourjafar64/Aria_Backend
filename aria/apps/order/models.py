@@ -21,9 +21,9 @@ class Order(models.Model):
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False, related_name='user')
     service_worker = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='service_worker')
-    services = models.ManyToManyField(to='service.Service', null=True, blank=True)
+    services = models.ForeignKey(to='service.Service', null=False , on_delete=models.DO_NOTHING,related_name='service')
     src_addr = models.ForeignKey(
-        to='aria_address.Address', on_delete=models.CASCADE, null=True, related_name='src_addr')
+        to='aria_address.Address', on_delete=models.CASCADE, related_name='src_addr')
     dst_addr = models.ForeignKey(
         to='aria_address.Address', on_delete=models.CASCADE, null=True, related_name='dst_addr')
     

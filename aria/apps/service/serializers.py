@@ -6,3 +6,11 @@ class ServiceSerializer(ModelSerializer):
     class Meta:
         model = Service
         fields = '__all__'
+        depth = 1
+
+
+class ServiceCreateUpdateSerializer(ModelSerializer):
+    class Meta:
+        model = Service
+        fields = '__all__'
+        depth = 0

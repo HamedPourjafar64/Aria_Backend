@@ -4,5 +4,6 @@
     "cSpell.words": [
         "kawazaki",
         "pytest"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

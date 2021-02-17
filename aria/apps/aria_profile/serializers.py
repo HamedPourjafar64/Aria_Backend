@@ -17,6 +17,7 @@ class AriaProfileCreateUpdateSerializer(serializers.ModelSerializer):
         fields = '__all__'
         depth = 0
 
+
     def to_representation(self, instance):
         ret = super(AriaProfileCreateUpdateSerializer,
                     self).to_representation(instance)

@@ -1,11 +1,7 @@
+from aria.apps.groups.logics import create_group
 import pytest
+from aria.tests.fixtures import temp_group
 
-
-def test_create_group(temp_group):
+@pytest.mark.django_db
+def test_create_group(temp_group: temp_group):
     assert create_group(temp_group) == True
-    
-def test_assign_user_to_group(temp_group, temp_user):
-    assert assign_user_to_group(temp_group, temp_user) == True
-
-def test_remove_user_from_group(temp_group, temp_user):
-    assert remove_user_from_group(temp_group, temp_user) == True

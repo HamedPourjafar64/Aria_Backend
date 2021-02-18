@@ -6,6 +6,7 @@ from aria.apps.part.logics import create_part
 from aria.apps.service.service_category.logics import create_service_category
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.conf import settings
+from django.contrib.auth.models import Group
 import pytest
 import os
 
@@ -14,6 +15,10 @@ import os
 def temp_user(django_user_model):
     return django_user_model.objects.create(
         username='tester', password='tester@123')
+
+@pytest.fixture
+def temp_group():
+    return Group.objects.create(name='test')
 
 
 @pytest.fixture

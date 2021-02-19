@@ -1,6 +1,6 @@
 import pytest
 from aria.tests.fixtures import temp_user, temp_group
-from aria.apps.user.logics import assign_user_to_group, create_user, update_token_password, user_assigned, user_exist
+from aria.apps.user.logics import assign_user_to_group, create_user, update_token_password, check_user_assigned_to_group, user_exist
 
 
 @pytest.mark.django_db
@@ -24,4 +24,8 @@ def test_update_token_password(temp_user: temp_user):
 @pytest.mark.django_db
 def test_user_assigned(temp_user, temp_group):
     assign_user_to_group(temp_group, temp_user)
-    assert user_assigned(temp_user, temp_group) == True
+    assert check_user_assigned_to_group(temp_user, temp_group) == True
+    
+    
+def test_login_user(temp_user):
+    assert login_user(temp_user) == True

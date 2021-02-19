@@ -24,22 +24,26 @@ def create_user(username):
         user = User.objects.get(username=username)
         update_token_password(user=user)
         group = Group(name=settings.REGISTER_GROUP)
-        if user_assigned(user=user, group=group):
+        if check_user_assigned_to_group(user=user, group=group):
             assign_user_to_group(group=group, user=user)
         return True
     raise ValueError('Username is not valid!')
 
+def check_username(username):
+    if validate_phone_number(username):
+        return True
+    return False
 
-def assign_user_to_group(group: Group, user: User):
-    if group_exist(group) == False:
-        create_group(group)
-    user.groups.add(group.id)
-    return True
+def user_exist(username):
+    if User.objects.filter(username=username).count() > 0:
+        return True
+    return False
+
+
 
 
 def update_token_password(user: User):
-    # token = generate_random_number()
-    token = 10000
+    token = generate_random_number()
     serializer = UserSerializer(
         instance=user, data={'password': token}, partial=True)
     if serializer.is_valid(raise_exception=True):
@@ -48,25 +52,17 @@ def update_token_password(user: User):
         return True
     return False
 
-
-def check_username(username):
-    # we need to check for phone number validation
-    if validate_phone_number(username):
-        return True
-    return False
-
-
-def user_exist(username):
-    if check_username(username):
-        if User.objects.filter(username=username).count() > 0:
-            return True
-        return False
-    return False
-
-
-def user_assigned(user: User, group: Group):
+def check_user_assigned_to_group(user: User, group: Group):
     groups = user.groups.all()
     for gr in groups:
         if gr.name == group.name:
             return True
     return False
+
+
+def assign_user_to_group(group: Group, user: User):
+    if group_exist(group) == False:
+        create_group(group)
+    user.groups.add(group.id)
+    return True
+

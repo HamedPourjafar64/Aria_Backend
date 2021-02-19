@@ -35,8 +35,8 @@ def temp_part():
 def temp_service_category():
     return {
         "name": "Test",
-        "image": SimpleUploadedFile(name='towing.jpg',
-                                    content=open(os.path.join(settings.BASE_DIR, 'media/media/services/2021/02/16/towing.jpg'), 'rb').read(), content_type='image/jpeg'),
+        "image": SimpleUploadedFile(name='test.jpg',
+                                    content=open(os.path.join(settings.BASE_DIR, 'test.jpg'), 'rb').read(), content_type='image/jpeg'),
         "enabled": True
     }
 

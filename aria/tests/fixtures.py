@@ -14,7 +14,7 @@ import os
 @pytest.fixture(autouse=True)
 def temp_user(django_user_model):
     return django_user_model.objects.create(
-        username='tester', password='tester@123')
+        username='+14378862762', password='tester@123')
 
 @pytest.fixture
 def temp_group():
@@ -106,9 +106,9 @@ def temp_profile():
 
 
 @pytest.fixture
-def temp_contact(temp_address, temp_profile):
+def temp_contact(temp_address, temp_profile, temp_user):
     create_address(address=temp_address)
-    create_profile(profile=temp_profile, username='tester')
+    create_profile(profile=temp_profile, username=temp_user.username)
     return {
         "fax_number": "0933333",
         "name": "work",

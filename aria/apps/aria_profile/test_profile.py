@@ -12,9 +12,9 @@ def old_temp_profile():
 
 
 @pytest.mark.django_db
-def test_create_profile(temp_profile: temp_profile):
-    assert create_profile(temp_profile, 'tester') == True
+def test_create_profile(temp_profile: temp_profile, temp_user: temp_user):
+    assert create_profile(temp_profile, temp_user.username) == True
 
 @pytest.mark.django_db
-def test_update_profile(old_temp_profile, temp_profile: temp_profile):
-    assert update_profile(old_temp_profile, temp_profile, 'tester') == True
+def test_update_profile(old_temp_profile, temp_profile: temp_profile, temp_user: temp_user):
+    assert update_profile(old_temp_profile, temp_profile, temp_user.username) == True

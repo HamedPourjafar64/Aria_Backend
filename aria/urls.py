@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('aria.apps.aria_address.urls')),
     path('', include('aria.apps.service.urls')),
     path('', include('aria.apps.aria_profile.urls')),
+    path('', include('aria.apps.user.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

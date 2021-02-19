@@ -24,6 +24,8 @@ SECRET_KEY = 'dym9%6)^oa4)8thq(mt1t(221=bg6am!s+tyt@=!hfs(c%a@95'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+REGISTER_GROUP = 'SAUTH'
+
 ALLOWED_HOSTS = []
 
 MEDIA_URL = 'media/'

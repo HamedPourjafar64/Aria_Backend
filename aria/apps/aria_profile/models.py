@@ -11,3 +11,5 @@ class AriaProfile(models.Model):
     bio = models.CharField(max_length=256, null=True)
     user = models.OneToOneField(
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
+    contact = models.ForeignKey(
+        to='aria_contact.Contact', on_delete=models.CASCADE, null=True)

@@ -14,5 +14,4 @@ class Contact(models.Model):
         to='aria_address.Address', on_delete=models.CASCADE, null=True)
     phone_numbers = models.ForeignKey(
         to=PhoneNumber, on_delete=models.CASCADE, null=True)
-    profile = models.ForeignKey(
-        to='aria_profile.AriaProfile', on_delete=models.CASCADE, null=False)
+

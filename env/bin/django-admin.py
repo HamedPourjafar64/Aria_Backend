@@ -1,4 +1,4 @@
-#!/Users/saraazimi/Documents/hamed/Aria_Backend/env/bin/python3
+#!/Users/saraazimi/Documents/hamed/projects/aria_project/server/Aria_Backend/env/bin/python3.9
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

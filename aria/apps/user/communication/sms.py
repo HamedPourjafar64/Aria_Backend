@@ -1,6 +1,10 @@
-from aria.apps.user.communication.kaveh_negar import KavehNegarSMS
+
+
+from aria.apps.user.communication.twilio_sms import send_sms_by_twilio
+
+
+def create_sms_body(token):
+    return 'Welcome to Aria Towing: ' + token
 
 def send_sms(token, phone_number):
-    kaveh = KavehNegarSMS()
-    kaveh.send_sms(token=token, phone_number=phone_number)
-    return True
+    send_sms_by_twilio(phone_number, create_sms_body(token))

@@ -11,7 +11,7 @@ class Vehicle(models.Model):
     vehicle_type = models.CharField(max_length=250, null=False)
     model = models.CharField(max_length=128, null=False)
     year = models.IntegerField()
-    user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    vehicle_images = models.ForeignKey(to=VehicleImages, on_delete=models.CASCADE)
+    user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False)
+    vehicle_images = models.ForeignKey(to=VehicleImages, on_delete=models.CASCADE, null=True)
 
 

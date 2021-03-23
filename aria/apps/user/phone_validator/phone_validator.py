@@ -1,7 +1,7 @@
 from aria.apps.user.phone_validator.canada_area_codes import CanadaAreaCodes
 
 
-def validate_phone_number(phone_number):
+def is_valid_phone(phone_number):
     no_parentheses = phone_number.replace('(', '').replace(')', '').replace(' ', '')
     no_dashes = no_parentheses.replace('-', '')
     no_country_code_sign = no_dashes.replace('+1', '')

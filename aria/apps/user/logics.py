@@ -4,7 +4,7 @@ import requests
 from aria.apps.user.utils import generate_random_number
 from django.conf import settings
 from aria.apps.user.communication.sms import send_sms
-from aria.apps.user.phone_validator.phone_validator import validate_phone_number
+from aria.apps.user.phone_validator.phone_validator import is_valid_phone
 from aria.apps.groups.logics import create_group, group_exist
 from aria.apps.user.serializers import UserSerializer
 from django.contrib.auth.models import User, Group
@@ -18,7 +18,7 @@ def authenticate_user(username):
         update_token_password(user=user)
         check_user_assigned_to_group(user=user)
         return True
-    raise ValueError('Username is not valid!')
+    return False
 
 
 def create_user(username):
@@ -32,7 +32,7 @@ def create_user(username):
 
 
 def check_username(username):
-    if validate_phone_number(username):
+    if is_valid_phone(username):
         return True
     return False
 
@@ -44,6 +44,7 @@ def user_exist(username):
 
 
 def update_token_password(user: User):
+    # token = generate_random_number()
     token = 10000
     serializer = UserSerializer(
         instance=user, data={'password': token}, partial=True)
@@ -71,19 +72,16 @@ def assign_user_to_group(user: User):
     return True
 
 
-def login_user(username, password):
-    if check_username(username=username) and user_exist(username):
-        user_data = {
-            'username': 'hamed',
-            'password': 'Hamed@123'
-        }
-        data = {
-            'client_id': 'jckmJoDYbAcpWHzB9jpaYj3gRfeew8YYjeViEviL',
-            'client_secret': 'XI9ZoyhwsEp6iCHXA7wTbyyS1H4buFdZhS0GhSDcfafx6y8dSPxGoXdAClfvAbdYpGHf67CYXoAkODvdSgqjYsEBpl2bdiLYgESDciRTKgJOGyBouPXctOj9loVT5kUR',
-            'grant_type': 'password'
-        }
-        data.update(user_data)
-        response = requests.post(
-            url='http://localhost:8000/authentication/token/', data=data,)
-        return response
-    return {}
+def user_validation(username, password):
+    
+    data = {
+        'client_id': 'v4d4C8mMqTMQ3bYoKnBJtn2oYRTgLpL4b6LInCKo',
+        'client_secret': 'EoOmkh9XsmxJNTZKE5h84qIuqYsv6FOb9ZjAVq7Y4k0rugkH2FnUU2kcIwMK8827NoQGmBUBocBPzAZyxCzRTGpslCcDCNsBk66DiAsnLBZsVbl3mmxVu1hs6Q8dW4zV',
+        'grant_type': 'password',
+        'username': username,
+        'password': password
+    }
+    session = requests.Session()
+    response = session.post(
+        url='http://localhost:8000/authentication/token/', data=data,)
+    return response

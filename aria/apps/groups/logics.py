@@ -8,7 +8,7 @@ def create_group(groupname):
         'name': groupname
     }
     serializer = GroupSerializer(data=data)
-    if serializer.is_valid(raise_exception=True):
+    if serializer.is_valid():
         serializer.save()
         return True
     return False
